@@ -1,9 +1,37 @@
-<html>
-    <head>
-        <title>{{ title }} - LTKA Final Project</title>
-    </head>
-    <body>
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+   {{ title }} - LTKA Final Project
+{% endblock %}
+
+{% block navbar %}
+   <nav class="navbar navbar-default navbar-dark bg-dark">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">Radar Display Web</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Explore</a></li>
+                </ul>
+		<ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Login</a></li>
+		</ul>
+	    </div>	
+   </nav>
+{% endblock %}
+
+{% block content %}
         <h1>Hello!</h1>
-	<h3>{{user}}</h3>
-    </body>
-</html>
+	<h3 id="jarak">Jarak anda x</h3>
+	<div class="container">
+        	<canvas id="myChart"></canvas>
+    	</div>	
+{% endblock %}
+
+{% block scripts %}
+	{{super()}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous"></script>
+	<script type="text/javascript"src="{{ url_for('static', filename='index.js') }}">
+	</script>
+{% endblock%}

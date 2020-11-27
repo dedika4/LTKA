@@ -1,8 +1,10 @@
 from flask import Flask
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 
-if __name__ == '__main__':
-	app.run(debug=True, port=80, host='0.0.0.0')
+from app.api import bp as api_bp
+app.register_blueprint(api_bp, url_prefix='/api')
+bootstrap = Bootstrap(app)
 
-from app import routes
+from app import routes,models
