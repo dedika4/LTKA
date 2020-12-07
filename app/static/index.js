@@ -1,4 +1,5 @@
 function displayData(){
+  console.log("masok");
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -13,7 +14,7 @@ function displayData(){
      console.log('error')
     }
   };
-  xhttp.open("GET", 'http://localhost:5000/api/positions', true);
+  xhttp.open("GET", 'http://127.0.0.1:5000/api/positions', true);
   xhttp.send();
 }
 
@@ -48,4 +49,4 @@ function renderChart(data, labels) {
     });
 }
 
-setInterval(displayData, 1000);
+setInterval(displayData, 1500);

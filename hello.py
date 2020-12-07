@@ -6,5 +6,21 @@ if __name__ == '__main__':
     while True:
         if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
-            print(line)
+            line = line.split(',')
+            if(line[0]!=''):
+              ang = float(line[0])
+            else:
+              ang = 0
+            if(len(line)>1):
+             if(line[1] != ''):
+              dis = float(line[1])
+             else:
+              dis = 0
+            else:
+              dis = 0
+            data = {
+                 'distance': dis,
+                 'direction' :ang
+            }
+            print(data)
 

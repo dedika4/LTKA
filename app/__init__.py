@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
+import serial
 
 app = Flask(__name__)
 
